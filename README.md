@@ -1,6 +1,6 @@
 # Marine Biology 740 Short Project 2
 
-Group: Oscar Ramfelt, 
+Group: Oscar Ramfelt and Herman Li
 
 Link to Github repository [here](https://github.com/kolaban/mbio740-short-project2)
 
@@ -136,8 +136,49 @@ Giving use a coverage of **93.3981%** which is almost no change from our estimat
 
 ## Spades
 
-For the assembly we used Spades (version = ) with the following command being run. 
+Prior to assembly there was a name change for the trimmed reads using the following command. This was mainly done so that spades would accept the reads.
 
 ```Bash
+mv forward_good forward_good.fastq
+mv reverse_good reverse_good.fastq
+```
 
+For the assembly we used Spades (version = 3.14.0) with the following command being run. The --careful flag was used to optimze the assembly according and reduce the number of mismatches and indels to the [spades website](http://cab.spbu.ru/files/release3.11.1/manual.html#sec3.2).
+
+```Bash
+spades.py -1 forward_good.fastq -2 reverse_good.fastq -o ../spades_assembly -t 6 --careful
+```
+
+However, following completion of assembly Spades suggested that due to the high uniform coverage depth we run it again and add the isolate flag. Based on this suggestion we reran spades again with that flag and removed the --careful flag since you cannot use it together with the isolate flag.
+
+```Bash
+spades.py -1 forward_good.fastq -2 reverse_good.fastq -o ../spades_assembly_isolate -t 6 --isolate
+```
+
+## QUAST
+
+The resulting assembly statistics were then checked using QUAST (version =) this was done with the scaffolds.fasta output from Spades. This decision was made largely based on the fact that the [Spades website](http://cab.spbu.ru/files/release3.14.0/manual.html#sec3.5) suggests using this instead of the contigs output as the resulting sequences.
+
+```Bash
+quast.py ./spades_assembly_isolate/scaffolds.fasta -o spade_stats
+```
+
+The stats for our assembly were as follows:
+
+* **Length:** 2841771 ≈ 2.841771 Mbp
+* **Number of contigs:** 46
+* **N50:** 123068 bp
+* **Largest Contig:** 245046 bp
+
+Comparing this to the "true" genome for *Staphylococcus aureus* we see that this is fairly close to what we would expect. Interestingly our assembly is actually a bit larger than what we would expect compared to the true genome. 
+
+* **Length:** 2821361 ≈ 2.821361 Mbp
+* **Number of contigs:** 1
+
+## Prokka
+
+For annotation of genes we used Prokka (version = 1.14.6)
+
+```Bash
+prokka spades_assembly_isolate/scaffolds.fasta --cpus 6 --outdir annotation/
 ```
