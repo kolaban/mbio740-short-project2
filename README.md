@@ -165,14 +165,14 @@ quast.py ./spades_assembly_isolate/scaffolds.fasta -o spade_stats
 
 The stats for our assembly were as follows:
 
-* **Length:** 2841771 ≈ 2.841771 Mbp
+* **Length:** 2841771 ≈ 2.84 Mbp
 * **Number of contigs:** 46
 * **N50:** 123068 bp
 * **Largest Contig:** 245046 bp
 
 Comparing this to the "true" genome for *Staphylococcus aureus* we see that this is fairly close to what we would expect. Interestingly our assembly is actually a bit larger than what we would expect compared to the true genome. 
 
-* **Length:** 2821361 ≈ 2.821361 Mbp
+* **Length:** 2821361 ≈ 2.82 Mbp
 * **Number of contigs:** 1
 
 ## Prokka
@@ -182,3 +182,5 @@ For annotation of genes we used Prokka (version = 1.14.6)
 ```Bash
 prokka spades_assembly_isolate/scaffolds.fasta --cpus 6 --outdir annotation/
 ```
+
+## TrEMBL
