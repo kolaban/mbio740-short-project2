@@ -46,6 +46,14 @@ samtools depth -a staphylococcus_bowtie.bam | awk '{c++; if($3>0) total+=1}END{p
 
 This gave us a coverage of **93.4082%** across the genome.
 
+#### Bowtie 2 Software
+
+Bowtie 2 is a read alignment software that allows you to take a reference genome and find if/where reads from your fastq file map to it. You can change the mapping parameters to be more or less strict depending on what the purpose of your mapping is. A potential issue with using the software is that you might choose parameters where you are too strict with the reads and loose coverage across your genome since you might be attempting to sequence a close relative that has a slightly different genome in some location along the genome. On the other hand you might choose parameters that are too lenient which could incorporate reads that are not actually a part of the genome and don't represent "true" variation in the genome.
+
+#### Samtools Software
+
+Samtools is a software that contains plenty of useful tools to help you process sam files and extract various interesting bits of information from them. There aren't any clear biases that can come from this step since you are mostly just extracting information from the sam files that bowtie 2 generated.
+
 ## Fastqc
 
 ### Output
@@ -78,6 +86,10 @@ Producing two html files with the reads associated statistics, the html files ca
 ### Cleaning Strategy
 
 The overall cleaning strategy will be to remove the first few bases since they are both lower quality compared to the others and show a strange pattern in the per base sequence content graph. It also seems that there is a signficant amount of adapter content on the tail end of the reads showing that any cleaning strategy should include adapter trimming to remove those issues.
+
+#### Fastqc Software
+
+Fastqc is a program that helps visualize and provide tips on how to clean up your raw reads. It mainly acts as a visualization for various important quailty metrics across all the reads that you have access to. An interesting bias that can come from using it is attempting to get green check marks for all the metrics that Fastqc has. This could result in you removing more reads than you should have. Something that I saw mentioned a few times is that Fastqc doesn't know what analysis you are going for and so you have to put what you see from it in persepective together with knowledge about any biases that are too be expect with e.g the library preperation.
 
 ## Trimmomatic
 
@@ -134,6 +146,10 @@ samtools depth -a staphylococcus_bowtie_post.bam | awk '{c++; if($3>0) total+=1}
 
 Giving use a coverage of **93.3981%** which is almost no change from our estimation prior to cleaning, which probably means that none of the reads that we removed were core to the genome that we want to assemble.
 
+#### Trimmomatic Software
+
+Trimmomatic is a trimming software that helps clean up and remove "bad" reads from your dataset. It does this by removing bases from either end of your reads based on various parameters that you can set. It also includes some helpful predefined adapters that it can remove from your reads if it finds them. Largely the potential biases with this is that you forget to trim your reads or trim them too much. Trimming too much can lead to short reads that might not work as well (or work too well) during the mapping step. However, if you do not trim at all you might leave e.g. adapter sequences or low quality bases in your reads that could also skew your mapping/assembly results.
+
 ## Spades
 
 Prior to assembly there was a name change for the trimmed reads using the following command. This was mainly done so that spades would accept the reads.
@@ -154,6 +170,10 @@ However, following completion of assembly Spades suggested that due to the high 
 ```Bash
 spades.py -1 forward_good.fastq -2 reverse_good.fastq -o ../spades_assembly_isolate -t 6 --isolate
 ```
+
+#### Spades Software
+
+
 
 ## QUAST
 
