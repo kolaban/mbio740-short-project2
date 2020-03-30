@@ -173,7 +173,7 @@ spades.py -1 forward_good.fastq -2 reverse_good.fastq -o ../spades_assembly_isol
 
 #### Spades Software
 
-
+The spades software attempts to assemble a genome based on individual paired end reads. It uses the paired end reads to create contigs afterwhich it uses these contigs to create scaffolds. Potential issues with assembly are usually due to inadequate screening of the reads which is why quality control is important before handing over the reads to an assembler. Additionally, for due to the nature of *de Brujin* graphs you should also watch out for areas of unusually high coverage since this might lead to problems down the road. Subsampling seems to be the best route to avoid this issue.
 
 ## QUAST
 
@@ -190,10 +190,14 @@ The stats for our assembly were as follows:
 * **N50:** 123068 bp
 * **Largest Contig:** 245046 bp
 
-Comparing this to the "true" genome for *Staphylococcus aureus* we see that this is fairly close to what we would expect. Interestingly our assembly is actually a bit larger than what we would expect compared to the true genome. 
+Comparing this to the "true" genome for *Staphylococcus aureus* we see that this is fairly close to what we would expect. Interestingly our assembly is actually a bit larger than what we would expect compared to the true genome.
 
 * **Length:** 2821361 ≈ 2.82 Mbp
 * **Number of contigs:** 1
+
+#### QUAST Software
+
+QUAST is a software that helps give you an overview of your assembly. It takes in your assembly and outputs various statistics about it. While there is not any biases directly related to QUAST since it seems to only take the assembly and output statistics for it there may be issues in trying to optimize some of the parameters that it has. For example if you try to use a different assembler that produces longer contigs/scaffolds but actually is joining regions that shouldn't be joined. Producing a worse assembly despite an greater N50.
 
 ## Prokka
 
@@ -202,5 +206,9 @@ For annotation of genes we used Prokka (version = 1.14.6)
 ```Bash
 prokka spades_assembly_isolate/scaffolds.fasta --cpus 6 --outdir annotation/
 ```
+
+#### Prokka Software
+
+The Prokka software attempts to annotate your scaffolds and attach gene references to the various sequences found inside the assembly. This is mainly to help understand what kinds of genes are found in the assembly and to understand what the assembled genome is able to translate. Issues come with the database that is used for annotation since you may not have as many available references. This could bias the annotation for those genes that are more widely used and more widely found in the literature.
 
 ## TrEMBL
