@@ -1,0 +1,41 @@
+GO:0005737	323	312	GO:0005737	11	cytoplasm
+GO:0005524	257	247	GO:0005524	10	ATP binding
+GO:0046872	217	208	GO:0046872	9	heavy metal binding
+GO:0003677	98	89	GO:0003677	9	DNA binding
+GO:0006355	38	30	GO:0006355	8	DNA transcription regulation
+GO:0005886	275	268	GO:0005886	7	plasma membrane
+GO:0016021	224	217	GO:0016021	7	membrane component
+GO:0000160	33	26	GO:0000160	7	phosphorelay signal transduction system
+GO:0003723	41	35	GO:0003723	6	RNA binding
+GO:0006310	21	15	GO:0006310	6	DNA recombination
+GO:0008270	51	46	GO:0008270	5	zinc binding
+GO:0051539	66	63	GO:0051539	3	"4 iron, 4 sulfur cluster binding"
+GO:0071555	40	37	GO:0071555	3	cell wall organization
+GO:0006260	13	10	GO:0006260	3	DNA replication
+GO:0006268	6	3	GO:0006268	3	DNA unwinding in replication
+GO:0006269	5	2	GO:0006269	3	DNA replication (RNA primer)
+GO:0000287	56	54	GO:0000287	2	magnesium binding
+GO:0016887	44	42	GO:0016887	2	ATPase activity (ATP -> ADP)
+GO:0042802	31	29	GO:0042802	2	identical protein binding
+GO:0009252	28	26	GO:0009252	2	murein synthesis
+GO:0008360	27	25	GO:0008360	2	cell shape regulation
+GO:0000049	24	22	GO:0000049	2	tRNA pairing
+GO:0003700	23	21	GO:0003700	2	DNA transcription binding
+GO:0006281	23	21	GO:0006281	2	DNA repair
+GO:0051301	22	20	GO:0051301	2	cell division
+GO:0045454	20	18	GO:0045454	2	cell redox homeostasis
+GO:0046677	20	18	GO:0046677	2	antibiotic response
+GO:0006099	18	16	GO:0006099	2	Krebs cycle
+GO:0016829	11	9	GO:0016829	2	lyase activity
+GO:0006364	8	6	GO:0006364	2	rRNA processing
+GO:0004521	6	4	GO:0004521	2	endoribonuclease activity
+GO:0001522	5	3	GO:0001522	2	pseudouridine synthesis
+GO:0015074	5	3	GO:0015074	2	DNA integration
+GO:1990077	5	3	GO:1990077	2	primosome
+GO:0006270	4	2	GO:0006270	2	DNA replication initiation
+GO:0009982	4	2	GO:0009982	2	pseudouridine synthase activity
+GO:0043138	4	2	GO:0043138	2	3'-5' DNA helicase activity
+GO:0004748	3	1	GO:0004748	2	ribonucleoside-diphosphate reductase activity
+GO:0008047	3	1	GO:0008047	2	enzyme activator activity
+GO:0004534	2			2	5'-3' exoribonuclease activity
+GO:0006302	2			2	double-strand break repair

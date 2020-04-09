@@ -211,4 +211,28 @@ prokka spades_assembly_isolate/scaffolds.fasta --cpus 6 --outdir annotation/
 
 The Prokka software attempts to annotate your scaffolds and attach gene references to the various sequences found inside the assembly. This is mainly to help understand what kinds of genes are found in the assembly and to understand what the assembled genome is able to translate. Issues come with the database that is used for annotation since you may not have as many available references. This could bias the annotation for those genes that are more widely used and more widely found in the literature.
 
-## TrEMBL
+## **Analysis**
+---
+
+## Pre-Analysis Processing
+
+Although Prokka did annotate the genes, it could not be matched with a GO molecular function due to the different labeling. Instead we used a pre-generated file with the appropriate annotations to generate the GO molecular function list. With this output, using some Python code, the code counted the number of appearances of each annotation. With this table, the code then retrieved the GO molecular function list of each annotation from UniProt. From this list, another count was made of the GO functions to get the actual count of each GO function. The count was then outputted as a TSV file with the GO function in the first column and the count in the second.
+
+For the bacteria to compare this bacteria with, *Sulfurovum lithotrophicum*, the GO molecular function list was already given but need to be counted and a similar process was done as before to get the counts of each Go function. Again, it was outputted as a TSV file with the GO function in the first column and the count in the second.
+
+Files used to generate tables are in the analysis folder of this repository.
+
+## Comparisons
+
+To simplify the comparisons, only the top 50 GO molecular functions will be looked at and compared. The first 15 functions have very similar counts in the same order more or less. Looking at their biological functionality. They mostly deal with key cellular organelles and functions like the membranes, cytoplasm, ribosomes and protein generation, and ion bindings. In general, all values which differ has the Staph cell containing more genes encoding for each functionality. This makes sense because it has a bigger genome size.
+
+When comparing them based on the differences between the numbers, Staph in general had a higher count of genes with functions related to DNA including replication, transcription, and repair. Of note, both bacteria have antibiotic response functions with Staph having 20 and the other with 18. Two functions which have a count of two which Staph has but the sulfur bacterium does not are 5'-3' exoribonuclease activity and double-strand break repair. Given Staph has a bigger genome, it makes sense why it contains more functions related to processing and protecting it. When looking at the environment of each bacteria with Staph from the throat/mouth of a human and the sulfur bacteria from hyrdothermal sediments (BacDive), it might have an affect on this distribution as well. Given that the human body generally does attack pathogens, of which Staph is, the increase in DNA functions might help to defend itself from the damages caused by human defense mechanism. On the other hand, being at the bottom of the sea might reduce that need even though the environment near hydrothermal vents can be considered extreme.
+
+Comparing the similarities, most of the similar items relates to basic cell functionality like protein synthesis and ribosomes. Given that all cells need such processes and organelles because life processes are based on these basics, it makes sense why they have the exact same numbers.
+
+---
+
+## Citations
+
+Sulfurovum lithotrophicum https://bacdive.dsmz.de/index.php?search=6117
+Staphylococcus aureus https://bacdive.dsmz.de/index.php?search=14487

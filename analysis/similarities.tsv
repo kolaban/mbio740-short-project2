@@ -1,0 +1,26 @@
+GO:0005829	71	71	GO:0005829		0		cytosol
+GO:0006412	61	61	GO:0006412		0		protein synthesis
+GO:0003735	53	53	GO:0003735		0		ribosome structure
+GO:0005840	42	42	GO:0005840		0		ribosome
+GO:0005887	42	42	GO:0005887		0		plasma membrane component
+GO:0005525	36	36	GO:0005525		0		ATP binding
+GO:0009055	36	36	GO:0009055		0		electrong transfer
+GO:0005506	25	25	GO:0005506		0		iron binding
+GO:0030170	22	22	GO:0030170		0		pyridoxal phosphate binding
+GO:0005975	21	21	GO:0005975		0		carb metabolism
+GO:0000155	20	20	GO:0000155		0		phosphorelay sensor kinase activity
+GO:0016020	20	20	GO:0016020		0		membrane
+GO:0051287	20	20	GO:0051287		0		NAD binding
+GO:0055085	20	20	GO:0055085		0		transmembrane transport
+GO:0022857	18	18	GO:0022857		0		transmembrane transporter activity
+GO:0048038	18	18	GO:0048038		0		quinone binding
+GO:0000166	17	17	GO:0000166		0		nucleotide binding
+GO:0055114	17	17	GO:0055114		0		oxidation-reduction process
+GO:0050660	16	16	GO:0050660		0		flavin adenine dinucleotide binding
+GO:0003824	15	15	GO:0003824		0		enzyme activity
+GO:0005576	15	15	GO:0005576		0		extracellular region
+GO:0006096	15	15	GO:0006096		0		glycolytic process
+GO:0030288	15	15	GO:0030288		0		outer membrane-bounded periplasmic space
+GO:0032259	14	14	GO:0032259		0		methylation
+GO:0050661	14	14	GO:0050661		0		NADP binding
+GO:0004222	13	13	GO:0004222		0		metalloendopeptidase activity
